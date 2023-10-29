@@ -3,9 +3,9 @@ package com.example.receipt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
     TextView sugarPrice, sugarVat, sugarActualPrice;
     TextView breadPrice, breadVat, breadActualPrice;
     TextView flourPrice, flourVat, flourActualPrice;
-    int count = 0;
-    float flour = 0;
-    float milk = 0;
-    float sugar = 0;
-    float bread = 0;
+
+    Item milk = new Item(300.0F);
+    Item sugar = new Item(300.0f);
+    Item flour = new Item(300.0f);
+    Item bread = new Item(300.0f);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,72 +44,57 @@ public class MainActivity extends AppCompatActivity {
          flourVat = findViewById(R.id.flourVat);
          flourActualPrice = findViewById(R.id.flourActualPrice);
 
-
-        flourButton.setOnClickListener(view -> {
-            count++;
-            while(count < 4){
-                float vat_f;
-                float price_f;
-
-                flour = flour + 420;
-                vat_f= (float) (0.16 * flour);
-                price_f = flour - vat_f;
-
-                flourActualPrice.setText((int) price_f);
-                flourVat.setText((int) vat_f);
-                flourPrice.setText((int) flour);
-            }
-        });
-
-        milkButton.setOnClickListener(view -> {
-            count++;
-            while(count < 4){
-                float vat_m;
-                float price_m;
-
-                milk = milk + 520;
-                vat_m = (float) (0.16 * flour);
-                price_m = milk - vat_m;
-
-                milkActualPrice.setText((int) price_m);
-                milkVat.setText((int) vat_m);
-                milkPrice.setText((int) milk);
-            }
-        });
-
-        breadButton.setOnClickListener(view -> {
-            count++;
-            while(count < 4){
-                float vat_b;
-                float price_b;
-
-                bread = bread + 250;
-                vat_b = (float) (0.16 * flour);
-                price_b = bread - vat_b;
-
-                breadActualPrice.setText((int) price_b);
-                breadVat.setText((int) vat_b);
-                breadPrice.setText((int) bread);
-            }
-        });
-
-        sugarButton.setOnClickListener(view -> {
-            count++;
-            while(count < 4){
-                float vat_s;
-                float price_s;
-
-                sugar = sugar + 1000;
-                vat_s = (float) (0.16 * sugar);
-                price_s = flour - vat_s;
-
-                sugarActualPrice.setText((int) price_s);
-                sugarVat.setText((int) vat_s);
-                sugarPrice.setText((int) sugar);
-            }
-        });
-
-
-
+         milkButton.setOnClickListener(
+                 v -> {
+                     if (milk.count < 4)
+                     {
+                         milk.incrementCount();
+                         milkPrice.setText(String.valueOf(milk.grossAmount));
+                         milkVat.setText(String.valueOf(milk.vat));
+                         milkActualPrice.setText(String.valueOf(milk.actualPrice));
+                     }
+                     else
+                         Toast.makeText(this, "You can Only buy 4 Litres", Toast.LENGTH_SHORT).show();
+                 }
+         );
+         sugarButton.setOnClickListener(
+                 v -> {
+                     if (sugar.count < 4)
+                     {
+                         sugar.incrementCount();
+                         sugarPrice.setText(String.valueOf(sugar.grossAmount));
+                         sugarVat.setText(String.valueOf(sugar.vat));
+                         sugarActualPrice.setText(String.valueOf(sugar.actualPrice));
+                     }
+                     else
+                         Toast.makeText(this, "You can Only buy 4 packets", Toast.LENGTH_SHORT).show();
+                 }
+         );
+         flourButton.setOnClickListener(
+                 v -> {
+                     if (flour.count < 4)
+                     {
+                         flour.incrementCount();
+                         flourPrice.setText(String.valueOf(flour.grossAmount));
+                         flourVat.setText(String.valueOf(flour.vat));
+                         flourActualPrice.setText(String.valueOf(flour.actualPrice));
+                     }
+                     else
+                         Toast.makeText(this, "You can Only buy 4 packets", Toast.LENGTH_SHORT).show();
+                 }
+         );
+         breadButton.setOnClickListener(
+                 v -> {
+                     if (bread.count < 4)
+                     {
+                         bread.incrementCount();
+                         breadPrice.setText(String.valueOf(bread.grossAmount));
+                         breadVat.setText(String.valueOf(bread.vat));
+                         breadActualPrice.setText(String.valueOf(bread.actualPrice));
+                     }
+                     else
+                         Toast.makeText(this, "You can Only buy 4 loaves", Toast.LENGTH_SHORT).show();
+                 }
+         );
     }
 }
