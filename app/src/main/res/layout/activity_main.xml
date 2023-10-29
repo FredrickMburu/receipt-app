@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/price"
                 android:textStyle="bold"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="65dp"
                 android:textSize="15sp"
                 />
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/vat"
                 android:textStyle="bold"
-                android:layout_marginStart="55dp"
+                android:layout_marginStart="40dp"
                 android:textSize="15sp"
                 />
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/actual_price"
                 android:textStyle="bold"
-                android:layout_marginStart="65dp"
+                android:layout_marginStart="15dp"
                 android:textSize="15sp"
                 />
         </LinearLayout>
@@ -65,18 +65,17 @@
             >
             <Button
                 android:id="@+id/milk_button"
-                android:layout_width="95dp"
-                android:layout_height="48dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
                 android:text="@string/milk"
                 />
 
             <TextView
                 android:id="@+id/milkPrice"
                 android:layout_width="60dp"
-                android:layout_height="27dp"
+                android:layout_height="30dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
                 />
 
             <TextView
@@ -84,8 +83,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -93,8 +92,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
         </LinearLayout>
 
@@ -105,7 +104,7 @@
             >
             <Button
                 android:id="@+id/sugar_button"
-                android:layout_width="95dp"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:text="@string/sugar"
                 />
@@ -115,8 +114,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -124,8 +123,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -133,8 +132,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
         </LinearLayout>
 
@@ -145,7 +144,7 @@
             >
             <Button
                 android:id="@+id/flour_button"
-                android:layout_width="95dp"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:text="@string/flour"
                 />
@@ -155,8 +154,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -164,8 +163,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -173,8 +172,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
         </LinearLayout>
 
@@ -185,7 +184,7 @@
             >
             <Button
                 android:id="@+id/bread_button"
-                android:layout_width="95dp"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:text="@string/bread"
                 />
@@ -195,8 +194,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -204,8 +203,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
 
             <TextView
@@ -213,8 +212,8 @@
                 android:layout_width="60dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
         </LinearLayout>
 
@@ -224,18 +223,18 @@
         android:orientation="horizontal"
         >
         <Button
-            android:id="@+id/grandtotal_button"
+            android:id="@+id/grand_total_button"
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:text="@string/grand_total"
             />
         <TextView
-            android:id="@+id/grandTotal"
+            android:id="@+id/grandTotalAmount"
             android:layout_width="200dp"
             android:layout_height="27dp"
             android:background="@drawable/textview_box"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="15dp"
+
             />
     </LinearLayout>
 
@@ -251,12 +250,12 @@
                 android:text="@string/discount"
                 />
             <TextView
-                android:id="@+id/discount"
+                android:id="@+id/discountAmount"
                 android:layout_width="200dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
         </LinearLayout>
 
@@ -266,18 +265,18 @@
             android:orientation="horizontal"
             >
             <Button
-                android:id="@+id/netpay_button"
+                android:id="@+id/net_pay_button"
                 android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:text="@string/net_pay"
                 />
             <TextView
-                android:id="@+id/netPay"
+                android:id="@+id/netPayAmount"
                 android:layout_width="200dp"
                 android:layout_height="27dp"
                 android:background="@drawable/textview_box"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+
                 />
         </LinearLayout>
 
