@@ -3,23 +3,26 @@ package com.example.receipt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Button milkButton, flourButton, breadButton, sugarButton;
-    Button grandtotalButton, discount, netPayButton;
     TextView milkPrice, milkVat, milkActualPrice;
     TextView sugarPrice, sugarVat, sugarActualPrice;
     TextView breadPrice, breadVat, breadActualPrice;
     TextView flourPrice, flourVat, flourActualPrice;
-
-    Item milk = new Item(300.0F);
-    Item sugar = new Item(300.0f);
-    Item flour = new Item(300.0f);
-    Item bread = new Item(300.0f);
+    TextView grandTotal, discount, netPay;
+    int count_f = 0;
+    int count_m = 0;
+    int count_s = 0;
+    int count_b = 0;
+    float flour = 0;
+    float milk = 0;
+    float sugar = 0;
+    float bread = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,57 +47,94 @@ public class MainActivity extends AppCompatActivity {
          flourVat = findViewById(R.id.flourVat);
          flourActualPrice = findViewById(R.id.flourActualPrice);
 
-         milkButton.setOnClickListener(
-                 v -> {
-                     if (milk.count < 4)
-                     {
-                         milk.incrementCount();
-                         milkPrice.setText(String.valueOf(milk.grossAmount));
-                         milkVat.setText(String.valueOf(milk.vat));
-                         milkActualPrice.setText(String.valueOf(milk.actualPrice));
-                     }
-                     else
-                         Toast.makeText(this, "You can Only buy 4 Litres", Toast.LENGTH_SHORT).show();
-                 }
-         );
-         sugarButton.setOnClickListener(
-                 v -> {
-                     if (sugar.count < 4)
-                     {
-                         sugar.incrementCount();
-                         sugarPrice.setText(String.valueOf(sugar.grossAmount));
-                         sugarVat.setText(String.valueOf(sugar.vat));
-                         sugarActualPrice.setText(String.valueOf(sugar.actualPrice));
-                     }
-                     else
-                         Toast.makeText(this, "You can Only buy 4 packets", Toast.LENGTH_SHORT).show();
-                 }
-         );
-         flourButton.setOnClickListener(
-                 v -> {
-                     if (flour.count < 4)
-                     {
-                         flour.incrementCount();
-                         flourPrice.setText(String.valueOf(flour.grossAmount));
-                         flourVat.setText(String.valueOf(flour.vat));
-                         flourActualPrice.setText(String.valueOf(flour.actualPrice));
-                     }
-                     else
-                         Toast.makeText(this, "You can Only buy 4 packets", Toast.LENGTH_SHORT).show();
-                 }
-         );
-         breadButton.setOnClickListener(
-                 v -> {
-                     if (bread.count < 4)
-                     {
-                         bread.incrementCount();
-                         breadPrice.setText(String.valueOf(bread.grossAmount));
-                         breadVat.setText(String.valueOf(bread.vat));
-                         breadActualPrice.setText(String.valueOf(bread.actualPrice));
-                     }
-                     else
-                         Toast.makeText(this, "You can Only buy 4 loaves", Toast.LENGTH_SHORT).show();
-                 }
-         );
+         grandTotal = findViewById(R.id.grandTotal);
+         discount = findViewById(R.id.discount);
+         netPay = findViewById(R.id.netPay);
+
+        flourButton.setOnClickListener(view -> {
+            count_f++;
+             if (count_f < 5){
+                float vat_f;
+                float price_f;
+
+                flour = flour + 600;
+                vat_f = (float) (0.16 * flour);
+                price_f = flour - vat_f;
+
+                flourActualPrice.setText(String.valueOf((int) price_f));
+                flourVat.setText(String.valueOf((int) vat_f));
+                flourPrice.setText(String.valueOf((int) flour));
+                allCalculations();
+            }
+        });
+
+        milkButton.setOnClickListener(view -> {
+            count_m++;
+            if (count_m < 5){
+                float vat_m;
+                float price_m;
+
+                milk = milk + 700;
+                vat_m = (float) (0.16 * milk);
+                price_m = milk - vat_m;
+
+                milkActualPrice.setText(String.valueOf((int) price_m));
+                milkVat.setText(String.valueOf((int) vat_m));
+                milkPrice.setText(String.valueOf((int) milk));
+                allCalculations();
+            }
+        });
+
+        breadButton.setOnClickListener(view -> {
+            count_b++;
+            if (count_b < 5){
+                float vat_b;
+                float price_b;
+
+                bread = bread + 300;
+                vat_b = (float) (0.16 * bread);
+                price_b = bread - vat_b;
+
+                breadActualPrice.setText(String.valueOf((int) price_b));
+                breadVat.setText(String.valueOf((int) vat_b));
+                breadPrice.setText(String.valueOf((int) bread));
+                allCalculations();
+            }
+        });
+
+        sugarButton.setOnClickListener(view -> {
+            count_s++;
+            if (count_s < 5){
+                float vat_s;
+                float price_s;
+
+                sugar = sugar + 1000;
+                vat_s = (float) (0.16 * sugar);
+                price_s = flour - vat_s;
+
+                sugarActualPrice.setText(String.valueOf((int) price_s));
+                sugarVat.setText(String.valueOf((int) vat_s));
+                sugarPrice.setText(String.valueOf((int) sugar));
+                allCalculations();
+
+            }
+        });
+
+    }
+    public void allCalculations(){
+        float calculateTotal = flour + milk + bread + sugar;
+        float discountBtn;
+        float netPAY;
+        if (calculateTotal < 10000){
+            discountBtn = 0.0F;
+            netPAY = calculateTotal;
+        }else {
+            discountBtn = calculateTotal * 0.15F;
+            netPAY = calculateTotal - discountBtn;
+        }
+        grandTotal.setText(String.valueOf((float) calculateTotal));
+        discount.setText(String.valueOf((float) discountBtn));
+        netPay.setText(String.valueOf((float) netPAY));
+
     }
 }
